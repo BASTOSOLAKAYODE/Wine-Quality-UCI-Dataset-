@@ -4,8 +4,21 @@
 Brief description of the dataset and what you aim to analyze/predict.
 
 ## Project Structure
-- Description of repository organization
-- How to navigate the analysis
+dataset-name-analysis/
+├── data/
+│   ├── raw/                # Original dataset
+│   └── processed/          # Cleaned/transformed data
+├── notebooks/
+│   ├── 01_eda.ipynb       # Exploratory Data Analysis
+│   ├── 02_preprocessing.ipynb
+│   └── 03_modeling.ipynb
+├── src/
+│   ├── __init__.py
+│   ├── data_preprocessing.py
+│   └── modeling.py
+├── README.md              # Project documentation
+├── requirements.txt       # Dependencies
+└── .gitignore            # Files to ignore
 
 ## Business Problem
 - What questions are you trying to answer?
