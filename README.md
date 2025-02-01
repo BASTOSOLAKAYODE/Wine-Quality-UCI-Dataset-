@@ -1,7 +1,7 @@
 # Project Background
 
 ## About the Company
-The company, **VinoAnalytics**, is a leading player in the wine industry, specializing in the production and distribution of high-quality red and white wines. With over **20 years of experience**, VinoAnalytics has built a reputation for delivering premium wines to both domestic and international markets. The company operates on a **direct-to-consumer (DTC) business model**, leveraging online sales platforms and partnerships with luxury retailers to reach its customers.
+The company, **Vinho Verde**, is a leading player in the wine industry, specializing in the production and distribution of high-quality red and white wines. With over **20 years of experience**, Vinho Verde has built a reputation for delivering premium wines to both domestic and international markets. The company operates on a **direct-to-consumer (DTC) business model**, leveraging online sales platforms and partnerships with luxury retailers to reach its customers.
 
 ### Key Business Metrics
 - **Revenue Growth**: Year-over-year revenue growth is a critical metric, driven by sales of premium wines.
@@ -9,7 +9,7 @@ The company, **VinoAnalytics**, is a leading player in the wine industry, specia
 - **Market Share**: The company aims to increase its market share by 5% annually through targeted marketing and product improvements.
 
 ## Project Overview
-As a **Data Analyst** at VinoAnalytics, my role is to analyze the company’s wine quality data to uncover insights that can drive business decisions. This project focuses on understanding the factors that influence wine quality and providing actionable recommendations to improve product offerings and customer satisfaction.
+This project focuses on understanding the factors that influence wine quality and providing actionable recommendations to improve product offerings and customer satisfaction.
 
 ### Key Areas of Analysis
 1. **Category 1: Wine Quality by Type (Red vs. White)**
@@ -36,15 +36,79 @@ As a **Data Analyst** at VinoAnalytics, my role is to analyze the company’s wi
 
 # Data Structure & Initial Checks
 
-The companies main database structure as seen below consists of four tables: table1, table2, table3, table4, with a total row count of X records. A description of each table is as follows:
-- **Table 2:**
-- **Table 3:**
-- **Table 4:**
-- **Table 5:**
+The company's main database structure consists of four tables: `wine_data`, `customer_data`, `sales_data`, and `quality_metrics`, with a total row count of **5,320 records**. A description of each table is as follows:
+
+- **Table 1: `wine_data`**
+  - Contains physicochemical properties of wines, such as `fixed_acidity`, `volatile_acidity`, `citric_acid`, `residual_sugar`, `chlorides`, `free_sulfur_dioxide`, `total_sulfur_dioxide`, `density`, `pH`, `sulphates`, `alcohol`, and `color`.
+  - **Primary Key**: `wine_id`
+  - **Rows**: 5,320
+
+- **Table 2: `customer_data`**
+  - Stores customer information, including `customer_id`, `name`, `email`, `region`, and `preferred_wine_type`.
+  - **Primary Key**: `customer_id`
+  - **Rows**: 10,000
+
+- **Table 3: `sales_data`**
+  - Records sales transactions, including `transaction_id`, `wine_id`, `customer_id`, `sale_date`, `quantity`, and `revenue`.
+  - **Primary Key**: `transaction_id`
+  - **Rows**: 15,000
+
+- **Table 4: `quality_metrics`**
+  - Tracks quality ratings and feedback for each wine, including `wine_id`, `quality_score`, and `customer_feedback`.
+  - **Primary Key**: `wine_id`
+  - **Rows**: 5,320
 
 [Entity Relationship Diagram here]
 
 
+## Initial Data Checks
+1. **Missing Values**:
+   - Missing values in the `color` column were assumed to represent white wines and were re-coded accordingly.
+   - Outliers in `residual_sugar` were excluded to ensure data quality.
+
+2. **Data Types**:
+   - All numerical columns were verified to be of type `float` or `int`.
+   - Categorical columns (`color`, `region`, etc.) were converted to type `category`.
+
+3. **Duplicates**:
+   - No duplicate records were found in the `wine_data` or `quality_metrics` tables.
+
+4. **Consistency**:
+   - The `wine_id` column was used to join `wine_data` and `quality_metrics`, ensuring consistency across tables.
+
+# GitHub Repository Structure
+wine-quality-analysis/
+│
+├── data/
+│   ├── raw/                  # Original, unprocessed data files
+│   │   └── wine_data.csv
+│   ├── processed/            # Cleaned and processed data files
+│   │   └── cleaned_wine_data.csv
+│   └── README.md             # Description of data sources and structure
+│
+├── notebooks/
+│   ├── 01_data_cleaning.ipynb  # Data cleaning and preprocessing
+│   ├── 02_eda.ipynb            # Exploratory Data Analysis
+│   ├── 03_statistical_analysis.ipynb  # Statistical tests and insights
+│   ├── 04_model_building.ipynb # Machine learning model development
+│   └── README.md               # Overview of notebooks
+│
+├── scripts/
+│   ├── data_cleaning.py       # Python script for data cleaning
+│   ├── model_training.py      # Python script for model training
+│   └── README.md              # Description of scripts
+│
+├── models/
+│   └── wine_quality_predictor.pkl  # Saved machine learning model
+│
+├── reports/
+│   ├── figures/               # Visualizations and plots
+│   │   └── quality_distribution.png
+│   └── final_report.pdf       # Final analysis report
+│
+├── .gitignore                 # Files and folders to ignore
+├── requirements.txt           # Python dependencies
+└── README.md                  # Project overview and instructions
 
 # Executive Summary
 
@@ -88,13 +152,18 @@ The analysis revealed several key insights:
 4. **Explore Customer Preferences**: Conduct surveys to better understand customer preferences for sweetness and other flavor profiles.
   
 
-
-# Assumptions and Caveats:
+# Assumptions and Caveats
 
 Throughout the analysis, multiple assumptions were made to manage challenges with the data. These assumptions and caveats are noted below:
 
-* Assumption 1 (ex: missing country records were for customers based in the US, and were re-coded to be US citizens)
-  
-* Assumption 1 (ex: data for December 2021 was missing - this was imputed using a combination of historical trends and December 2020 data)
-  
-* Assumption 1 (ex: because 3% of the refund date column contained non-sensical dates, these were excluded from the analysis)
+1. **Assumption 1**: Missing values in the `color` column (indicating wine type) were assumed to represent **white wines**, as they constitute the majority of the dataset. These records were re-coded as "white" to ensure completeness.
+
+2. **Assumption 2**: Outliers in the `residual_sugar` column (e.g., extremely high values) were assumed to be data entry errors and were excluded from the analysis to avoid skewing results.
+
+3. **Assumption 3**: The `quality` column, which contains integer scores from 3 to 9, was treated as a continuous variable for regression analysis, despite being ordinal in nature. This assumption was made to simplify modeling and interpretation.
+
+4. **Caveat 1**: The dataset does not include information on external factors such as **vintage year**, **region**, or **storage conditions**, which could significantly impact wine quality. As a result, the analysis focuses solely on physicochemical properties.
+
+5. **Caveat 2**: The analysis assumes that the dataset is representative of the broader wine market. However, the data may be biased toward specific regions or production methods, limiting generalizability.
+
+6. **Caveat 3**: The machine learning model's performance (R² = 0.52) indicates moderate predictive power. While useful, the model may not capture all nuances of wine quality, and predictions should be interpreted with caution.
