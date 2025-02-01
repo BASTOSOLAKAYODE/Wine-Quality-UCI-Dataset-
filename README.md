@@ -77,6 +77,7 @@ The company's main database structure consists of four tables: `wine_data`, `cus
    - The `wine_id` column was used to join `wine_data` and `quality_metrics`, ensuring consistency across tables.
 
 # GitHub Repository Structure
+```
 wine-quality-analysis/
 ├── data/
 │   ├── raw/                      # Original, unprocessed data files
@@ -108,7 +109,7 @@ wine-quality-analysis/
 ├── .gitignore                   # Files and folders to ignore
 ├── requirements.txt             # Python dependencies
 └── README.md                    # Project overview and instructions
-
+```
 # Executive Summary
 
 ### Overview of Findings
