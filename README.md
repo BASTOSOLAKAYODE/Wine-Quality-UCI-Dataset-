@@ -1,12 +1,7 @@
 # Project Background
 
-## About the Company
-The company, **Vinho Verde**, is a leading player in the wine industry, specializing in the production and distribution of high-quality red and white wines. With over **20 years of experience**, Vinho Verde has built a reputation for delivering premium wines to both domestic and international markets. The company operates on a **direct-to-consumer (DTC) business model**, leveraging online sales platforms and partnerships with luxury retailers to reach its customers.
-
-### Key Business Metrics
-- **Revenue Growth**: Year-over-year revenue growth is a critical metric, driven by sales of premium wines.
-- **Customer Satisfaction**: Measured through wine ratings and customer feedback, aiming for an average quality score of 7+.
-- **Market Share**: The company aims to increase its market share by 5% annually through targeted marketing and product improvements.
+## About the Wine Type
+Vinho Verde is a type of Portuguese wine that originates from the Minho region in the northwest of Portugal. The name "Vinho Verde" translates to "green wine," but it doesn't refer to the color of the wine; rather, it indicates that the wine is young or made from young vines.
 
 ## Project Overview
 This project focuses on understanding the factors that influence wine quality and providing actionable recommendations to improve product offerings and customer satisfaction.
@@ -29,74 +24,57 @@ This project focuses on understanding the factors that influence wine quality an
    - Identify the optimal acidity levels for high-quality wines.
 
 ### Data Sources and Tools
-- **Dataset**: The analysis is based on a dataset containing physicochemical properties and quality ratings for 5,320 red and white wines.
-- **SQL Queries**: The data was inspected and cleaned using SQL. The queries can be found [here](#) (link to SQL queries).
+- **Dataset**: The analysis is based on a dataset containing physicochemical properties and quality ratings for 6,497 red and white wines. Information about the dataset can be found [here](https://archive.ics.uci.edu/dataset/186/wine+quality).
 - **Tableau Dashboard**: An interactive dashboard was created to visualize sales trends and wine quality metrics. Explore it [here](#) (link to Tableau dashboard).
 
 
 # Data Structure & Initial Checks
 
-The company's main database structure consists of four tables: `wine_data`, `customer_data`, `sales_data`, and `quality_metrics`, with a total row count of **5,320 records**. A description of each table is as follows:
+The company's main database structure consists of two tables: `winequality-red.csv` and `winequality-white.csv`, with a total row count of **6,497 records**. A description of each table is as follows:
 
-- **Table 1: `wine_data`**
-  - Contains physicochemical properties of wines, such as `fixed_acidity`, `volatile_acidity`, `citric_acid`, `residual_sugar`, `chlorides`, `free_sulfur_dioxide`, `total_sulfur_dioxide`, `density`, `pH`, `sulphates`, `alcohol`, and `color`.
-  - **Primary Key**: `wine_id`
-  - **Rows**: 5,320
+- **Table 1: `winequality-red.csv`**
+  - Contains physicochemical properties of wines, such as `fixed acidity`, `volatile acidity`, `citric acid`, `residual sugar`, `chlorides`, `free sulfur dioxide`, `total sulfur dioxide`, `density`, `pH`, `sulphates`, `alcohol`, and `quality`.
+  - **Rows**: 1,599
 
-- **Table 2: `customer_data`**
-  - Stores customer information, including `customer_id`, `name`, `email`, `region`, and `preferred_wine_type`.
-  - **Primary Key**: `customer_id`
-  - **Rows**: 10,000
-
-- **Table 3: `sales_data`**
-  - Records sales transactions, including `transaction_id`, `wine_id`, `customer_id`, `sale_date`, `quantity`, and `revenue`.
-  - **Primary Key**: `transaction_id`
-  - **Rows**: 15,000
-
-- **Table 4: `quality_metrics`**
-  - Tracks quality ratings and feedback for each wine, including `wine_id`, `quality_score`, and `customer_feedback`.
-  - **Primary Key**: `wine_id`
-  - **Rows**: 5,320
+- **Table 2: `winequality-white.csv`**
+  - Contains physicochemical properties of wines, such as `fixed acidity`, `volatile acidity`, `citric acid`, `residual sugar`, `chlorides`, `free sulfur dioxide`, `total sulfur dioxide`, `density`, `pH`, `sulphates`, `alcohol`, and `quality`.
+  - **Rows**: 4,898
 
 [Entity Relationship Diagram here]
 
 
 ## Initial Data Checks
 1. **Missing Values**:
-   - Missing values in the `color` column were assumed to represent white wines and were re-coded accordingly.
-   - Outliers in `residual_sugar` were excluded to ensure data quality.
+   - No missing values was found in both datasets.
+   - Columns names were changed to follow standard format. The space between words in each name were replaced with an underscore '_'
 
 2. **Data Types**:
    - All numerical columns were verified to be of type `float` or `int`.
-   - Categorical columns (`color`, `region`, etc.) were converted to type `category`.
 
 3. **Duplicates**:
-   - No duplicate records were found in the `wine_data` or `quality_metrics` tables.
+   - No duplicate records were found in the `winequality-red.csv` or `winequality-white.csv` tables.
 
 4. **Consistency**:
-   - The `wine_id` column was used to join `wine_data` and `quality_metrics`, ensuring consistency across tables.
+   - A new column `color` was created for both datasets. It contained the colors `red` or `white` for the respective tables, this column was used to append the datasets for easier data processing.
 
-# GitHub Repository Structure
+# Repository Structure
 ```
-wine-quality-analysis/
+Wine-Quality-UCI-Dataset-/
 ├── data/
 │   ├── raw/                      # Original, unprocessed data files
-│   │   └── wine_data.csv
+│   │   └── winequality-red.csv
+|   |   └── winequality-white.csv
+|   |   └── winequality.names
 │   ├── processed/                # Cleaned and processed data files
-│   │   └── cleaned_wine_data.csv
-│   └── README.md                 # Description of data sources and structure
+│   │   └── data_cleaned.csv
 │
 ├── notebooks/
-│   ├── 01_data_cleaning.ipynb    # Data cleaning and preprocessing
-│   ├── 02_eda.ipynb             # Exploratory Data Analysis
-│   ├── 03_statistical_analysis.ipynb  # Statistical tests and insights
-│   ├── 04_model_building.ipynb   # Machine learning model development
-│   └── README.md                 # Overview of notebooks
+│   ├── 01_eda.ipynb             # Exploratory Data Analysis
+│   ├── 02_preprocessing.ipynb   # Data cleaning and preprocessing 
+│   ├── 03_model_building.ipynb   # Machine learning model development
 │
 ├── scripts/
-│   ├── data_cleaning.py         # Python script for data cleaning
-│   ├── model_training.py        # Python script for model training
-│   └── README.md                # Description of scripts
+│   └── _init_.py                # Description of scripts
 │
 ├── models/
 │   └── wine_quality_predictor.pkl  # Saved machine learning model
@@ -123,22 +101,52 @@ These insights can guide strategic decisions in production, marketing, and produ
 [Visualization, including a graph of overall trends or snapshot of a dashboard]
 
 
-
 # Insights Deep Dive
-### Category 1:
+### Analysis of Wine Quality by Color:
 
-* **Main insight 1.** More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
-  
-* **Main insight 2.** More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
-  
-* **Main insight 3.** More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
-  
-* **Main insight 4.** More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
+1. **Average Quality Ratings**:
+   - **White Wines**: 5.85
+   - **Red Wines**: 5.62
+
+   White wines have a higher average quality rating than red wines.
+
+2. **Statistical Significance**:
+   - The difference in quality ratings is **statistically significant**.
+   - The **p-value** is **4.47 × 10⁻¹⁷**, which is much smaller than the standard threshold of 0.05.
+   - This indicates that the observed difference in quality is **not due to chance**.
+
+### Analysis of Wine Quality by Alcohol Content:
+
+1. **Relationship Between Alcohol and Quality**:
+   - For every **1% increase in alcohol content**, the **quality rating** of the wine increases by **0.35 points** on average.
+   - This means that wines with higher alcohol content tend to be rated as higher quality.
+
+2. **Strength of the Relationship**:
+   - The model explains **22% of the variation** in wine quality ratings. This suggests that while alcohol content is an important factor, other factors not included in the analysis also play a significant role in determining wine quality.
+
+3. **Statistical Significance**:
+   - The relationship between alcohol content and quality is **statistically significant**.
+   - The **p-value** for alcohol content is **0.000**, which is much smaller than the standard threshold of 0.05.
+   - This indicates that the observed relationship between alcohol and quality is **not due to chance**.
+
+### Analysis of Wine Quality by Residual Sugar Content:
+
+1. **Relationship Between Residual Sugar and Quality**:
+   - For every **1 gram per liter increase in residual sugar**, the **quality rating** of the wine decreases by **0.011 points** on average.
+   - This means that wines with higher residual sugar content tend to be rated slightly lower in quality.
+
+2. **Strength of the Relationship**:
+   - The model explains only **0.3% of the variation** in wine quality ratings. This indicates that residual sugar content has a **very weak influence** on wine quality compared to other factors.
+
+3. **Statistical Significance**:
+   - The relationship between residual sugar and quality is **statistically significant**.
+   - The **p-value** for residual sugar is **0.000**, which is much smaller than the standard threshold of 0.05.
+   - This indicates that the observed relationship between residual sugar and quality is **not due to chance**.
 
 [Visualization specific to category 1]
 
 
-# Insights and Recommendations
+# Key Insights
 The analysis revealed several key insights:
 1. **White wines** have significantly higher quality ratings than red wines, with an average score of 5.85 compared to 5.62.
 2. **Alcohol content** is a strong predictor of wine quality, with a moderate positive correlation (0.47).
@@ -149,21 +157,16 @@ The analysis revealed several key insights:
 1. **Focus on White Wines**: Increase production and marketing efforts for white wines, as they consistently receive higher ratings.
 2. **Optimize Alcohol Content**: Aim for wines with higher alcohol content to improve quality ratings.
 3. **Monitor Acidity Levels**: Maintain optimal acidity levels (higher fixed acidity, lower volatile acidity) to enhance wine quality.
-4. **Explore Customer Preferences**: Conduct surveys to better understand customer preferences for sweetness and other flavor profiles.
   
 
 # Assumptions and Caveats
 
 Throughout the analysis, multiple assumptions were made to manage challenges with the data. These assumptions and caveats are noted below:
 
-1. **Assumption 1**: Missing values in the `color` column (indicating wine type) were assumed to represent **white wines**, as they constitute the majority of the dataset. These records were re-coded as "white" to ensure completeness.
+1. **Assumption 1**: The `quality` column, which contains integer scores from 3 to 9, was treated as a continuous variable for regression analysis, despite being ordinal in nature. This assumption was made to simplify modeling and interpretation.
 
-2. **Assumption 2**: Outliers in the `residual_sugar` column (e.g., extremely high values) were assumed to be data entry errors and were excluded from the analysis to avoid skewing results.
+2. **Caveat 1**: The dataset does not include information on external factors such as **vintage year**, **region**, or **storage conditions**, which could significantly impact wine quality. As a result, the analysis focuses solely on physicochemical properties.
 
-3. **Assumption 3**: The `quality` column, which contains integer scores from 3 to 9, was treated as a continuous variable for regression analysis, despite being ordinal in nature. This assumption was made to simplify modeling and interpretation.
+3. **Caveat 2**: The analysis assumes that the dataset is representative of the broader wine market. However, the data may be biased toward specific regions or production methods, limiting generalizability.
 
-4. **Caveat 1**: The dataset does not include information on external factors such as **vintage year**, **region**, or **storage conditions**, which could significantly impact wine quality. As a result, the analysis focuses solely on physicochemical properties.
-
-5. **Caveat 2**: The analysis assumes that the dataset is representative of the broader wine market. However, the data may be biased toward specific regions or production methods, limiting generalizability.
-
-6. **Caveat 3**: The machine learning model's performance (R² = 0.52) indicates moderate predictive power. While useful, the model may not capture all nuances of wine quality, and predictions should be interpreted with caution.
+4. **Caveat 3**: The machine learning model's performance (R² = 0.52) indicates moderate predictive power. While useful, the model may not capture all nuances of wine quality, and predictions should be interpreted with caution.
