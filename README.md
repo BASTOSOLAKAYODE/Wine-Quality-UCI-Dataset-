@@ -78,37 +78,36 @@ The company's main database structure consists of four tables: `wine_data`, `cus
 
 # GitHub Repository Structure
 wine-quality-analysis/
-│
 ├── data/
-│   ├── raw/                  # Original, unprocessed data files
+│   ├── raw/                      # Original, unprocessed data files
 │   │   └── wine_data.csv
-│   ├── processed/            # Cleaned and processed data files
+│   ├── processed/                # Cleaned and processed data files
 │   │   └── cleaned_wine_data.csv
-│   └── README.md             # Description of data sources and structure
+│   └── README.md                 # Description of data sources and structure
 │
 ├── notebooks/
-│   ├── 01_data_cleaning.ipynb  # Data cleaning and preprocessing
-│   ├── 02_eda.ipynb            # Exploratory Data Analysis
+│   ├── 01_data_cleaning.ipynb    # Data cleaning and preprocessing
+│   ├── 02_eda.ipynb             # Exploratory Data Analysis
 │   ├── 03_statistical_analysis.ipynb  # Statistical tests and insights
-│   ├── 04_model_building.ipynb # Machine learning model development
-│   └── README.md               # Overview of notebooks
+│   ├── 04_model_building.ipynb   # Machine learning model development
+│   └── README.md                 # Overview of notebooks
 │
 ├── scripts/
-│   ├── data_cleaning.py       # Python script for data cleaning
-│   ├── model_training.py      # Python script for model training
-│   └── README.md              # Description of scripts
+│   ├── data_cleaning.py         # Python script for data cleaning
+│   ├── model_training.py        # Python script for model training
+│   └── README.md                # Description of scripts
 │
 ├── models/
 │   └── wine_quality_predictor.pkl  # Saved machine learning model
 │
 ├── reports/
-│   ├── figures/               # Visualizations and plots
+│   ├── figures/                 # Visualizations and plots
 │   │   └── quality_distribution.png
-│   └── final_report.pdf       # Final analysis report
+│   └── final_report.pdf        # Final analysis report
 │
-├── .gitignore                 # Files and folders to ignore
-├── requirements.txt           # Python dependencies
-└── README.md                  # Project overview and instructions
+├── .gitignore                   # Files and folders to ignore
+├── requirements.txt             # Python dependencies
+└── README.md                    # Project overview and instructions
 
 # Executive Summary
 
