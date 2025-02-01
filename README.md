@@ -1,57 +1,124 @@
-# Dataset Name Analysis
+Welcome to the sample GitHub ReadME! Use this template as an outline for your data analytics projects. Include one ReadME per repository, with each repository storing one project. Remember, it's better to have quality over quantity - having 2 stellar business-relevant projects stands out much more than 3+ mediocre projects. Feel free to make a copy of this or fork this repository and make it your own. Happy portfolio-ing :) 
 
-## Overview
-Brief description of the dataset and what you aim to analyze/predict.
 
-## Project Structure
-dataset-name-analysis/
-├── data/
-│   ├── raw/                # Original dataset
-│   └── processed/          # Cleaned/transformed data
-├── notebooks/
-│   ├── 01_eda.ipynb       # Exploratory Data Analysis
-│   ├── 02_preprocessing.ipynb
-│   └── 03_modeling.ipynb
-├── src/
-│   ├── __init__.py
-│   ├── data_preprocessing.py
-│   └── modeling.py
-├── README.md              # Project documentation
-├── requirements.txt       # Dependencies
-└── .gitignore            # Files to ignore
 
-## Business Problem
-Based on the data set, we have come up with these questions that we would like to answer in our analysis.
-- Is a certain type of wine (red or white) associated with higher quality?
-- Do wines with higher alcoholic content receive better ratings?
-- Do sweeter wines (more residual sugar) receive better ratings?
--hat level of acidity is associated with the highest quality?
 
-## Data
-- Source of the dataset
-- Description of features
-- Basic statistics
+# Project Background
+Backround about the company, including the industry, active years, business model, and key business metrics. Explain this from the POV of a data analyst who is working at the company.
 
-## Methodology
-- Data cleaning approach
-- Feature engineering steps
-- Modeling techniques used
-- Evaluation metrics
+Insights and recommendations are provided on the following key areas:
 
-## Results
-- Key findings
-- Visualizations
-- Model performance
+- **Category 1:** 
+- **Category 2:** 
+- **Category 3:** 
+- **Category 4:** 
 
-## Future Work
-- Potential improvements
-- Additional analyses
+The SQL queries used to inspect and clean the data for this analysis can be found here [link].
 
-## Installation
-Instructions for running the analysis locally
+Targed SQL queries regarding various business questions can be found here [link].
 
-## Technologies Used
-- Python 3.x
-- Pandas
-- Scikit-learn
-- etc.
+An interactive Tableau dashboard used to report and explore sales trends can be found here [link].
+
+
+
+# Data Structure & Initial Checks
+
+The companies main database structure as seen below consists of four tables: table1, table2, table3, table4, with a total row count of X records. A description of each table is as follows:
+- **Table 2:**
+- **Table 3:**
+- **Table 4:**
+- **Table 5:**
+
+[Entity Relationship Diagram here]
+
+
+
+# Executive Summary
+
+### Overview of Findings
+
+Explain the overarching findings, trends, and themes in 2-3 sentences here. This section should address the question: "If a stakeholder were to take away 3 main insights from your project, what are the most important things they should know?" You can put yourself in the shoes of a specific stakeholder - for example, a marketing manager or finance director - to think creatively about this section.
+
+[Visualization, including a graph of overall trends or snapshot of a dashboard]
+
+
+
+# Insights Deep Dive
+### Category 1:
+
+* **Main insight 1.** More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
+  
+* **Main insight 2.** More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
+  
+* **Main insight 3.** More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
+  
+* **Main insight 4.** More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
+
+[Visualization specific to category 1]
+
+
+### Category 2:
+
+* **Main insight 1.** More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
+  
+* **Main insight 2.** More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
+  
+* **Main insight 3.** More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
+  
+* **Main insight 4.** More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
+
+[Visualization specific to category 2]
+
+
+### Category 3:
+
+* **Main insight 1.** More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
+  
+* **Main insight 2.** More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
+  
+* **Main insight 3.** More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
+  
+* **Main insight 4.** More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
+
+[Visualization specific to category 3]
+
+
+### Category 4:
+
+* **Main insight 1.** More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
+  
+* **Main insight 2.** More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
+  
+* **Main insight 3.** More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
+  
+* **Main insight 4.** More detail about the supporting analysis about this insight, including time frames, quantitative values, and observations about trends.
+
+[Visualization specific to category 4]
+
+
+
+# Recommendations:
+
+Based on the insights and findings above, we would recommend the [stakeholder team] to consider the following: 
+
+* Specific observation that is related to a recommended action. **Recommendation or general guidance based on this observation.**
+  
+* Specific observation that is related to a recommended action. **Recommendation or general guidance based on this observation.**
+  
+* Specific observation that is related to a recommended action. **Recommendation or general guidance based on this observation.**
+  
+* Specific observation that is related to a recommended action. **Recommendation or general guidance based on this observation.**
+  
+* Specific observation that is related to a recommended action. **Recommendation or general guidance based on this observation.**
+  
+
+
+# Assumptions and Caveats:
+
+Throughout the analysis, multiple assumptions were made to manage challenges with the data. These assumptions and caveats are noted below:
+
+* Assumption 1 (ex: missing country records were for customers based in the US, and were re-coded to be US citizens)
+  
+* Assumption 1 (ex: data for December 2021 was missing - this was imputed using a combination of historical trends and December 2020 data)
+  
+* Assumption 1 (ex: because 3% of the refund date column contained non-sensical dates, these were excluded from the analysis)
