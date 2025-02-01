@@ -21,8 +21,11 @@ dataset-name-analysis/
 └── .gitignore            # Files to ignore
 
 ## Business Problem
-- What questions are you trying to answer?
-- Why is this analysis valuable?
+Based on the data set, we have come up with these questions that we would like to answer in our analysis.
+- Is a certain type of wine (red or white) associated with higher quality?
+- Do wines with higher alcoholic content receive better ratings?
+- Do sweeter wines (more residual sugar) receive better ratings?
+- What level of acidity is associated with the highest quality?
 
 ## Data
 - Source of the dataset
