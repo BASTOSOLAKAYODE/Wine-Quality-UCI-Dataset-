@@ -19,17 +19,14 @@ This project focuses on understanding the factors that influence wine quality an
    - Explore whether sweeter wines (higher residual sugar) receive better ratings.
    - Assess the impact of sweetness on customer preferences.
 
-4. **Category 4: Acidity Levels and Quality** [Go to Category 4](#analysis-of-wine-quality-by-color-category-1)
+4. **Category 4: Acidity Levels and Quality** [Go to Category 4](#Analysis-of-Wine-Quality-by-level-of-acidity-category-4)
    - Examine the role of acidity (fixed acidity, volatile acidity, citric acid, pH) in determining wine quality.
    - Identify the optimal acidity levels for high-quality wines.
 
 ### Data Sources and Tools
-- **Dataset**: The analysis is based on a dataset containing physicochemical properties and quality ratings for 6,497 red and white wines. Information about the dataset can be found [here](https://archive.ics.uci.edu/dataset/186/wine+quality).
-- **Notebook**: The notebooks containing preprocessing, EDA and model training process for this case study can be found [here](notebooks/) .
-<!-- 
-- **Tableau Dashboard**: Visualizations were created to show the relationships in each of the categories listed above.  
-  Explore them [here](viz/). 
--->
+- **Dataset**: The analysis is based on a dataset containing physicochemical properties and quality ratings for 6,497 red and white wines. Information about the dataset can be found [here](https://archive.ics.uci.edu/dataset/186/wine+quality). **Raw dataset** used is [here](data/raw)
+- **Notebook**: The notebooks containing preprocessing, EDA and model training process for this case study can be found [here](notebooks/).
+
 
 # Data Structure & Initial Checks
 
@@ -70,31 +67,35 @@ The main database structure consists of two tables: `winequality-red.csv` and `w
 Wine-Quality-UCI-Dataset-/
 ├── data/
 │   ├── raw/                      # Original, unprocessed data files
-│   │   └── winequality-red.csv
-|   |   └── winequality-white.csv
-|   |   └── winequality.names
+│   │   ├── winequality-red.csv
+│   │   ├── winequality-white.csv
+│   │   └── winequality.names
 │   ├── processed/                # Cleaned and processed data files
 │   │   └── data_cleaned.csv
+│   ├── schema/                    # Data schema and ERD
+│   │   ├── erd_generator.ipynb
+│   │   ├── red_wine_schema.png
+│   │   └── white_wine_schema.png
 │
 ├── notebooks/
-│   ├── 01_eda.ipynb             # Exploratory Data Analysis
-│   ├── 02_preprocessing.ipynb   # Data cleaning and preprocessing 
-│   ├── 03_model_building.ipynb   # Machine learning model development
+│   ├── 01_preprocessing.ipynb              # Exploratory Data Analysis
+│   ├── 02_eda.ipynb    # Data cleaning and preprocessing
 │
 ├── scripts/
-│   └── _init_.py                # Description of scripts
+│   └── __init__.py                # Helper scripts and utilities
 │
 ├── models/
-│   └── wine_quality_predictor.pkl  # Saved machine learning model
+│   └── wine_quality_predictor.pkl # Saved machine learning model
 │
 ├── reports/
-│   ├── figures/                 # Visualizations and plots
+│   ├── figures/                   # Visualizations and plots
 │   │   └── quality_distribution.png
-│   └── final_report.pdf        # Final analysis report
+│   └── final_report.pdf           # Final analysis report
 │
-├── .gitignore                   # Files and folders to ignore
-├── requirements.txt             # Python dependencies
-└── README.md                    # Project overview and instructions
+├── .gitignore                     # Files and folders to ignore
+├── requirements.txt                # Python dependencies
+└── README.md                       # Project overview and instructions
+
 ```
 # Executive Summary
 
@@ -102,12 +103,17 @@ Wine-Quality-UCI-Dataset-/
 This analysis identifies key drivers of wine quality and provides actionable insights to enhance product offerings and customer satisfaction. The three most important findings are:
 1. **White wines outperform red wines** in quality ratings, with an average score of 5.85 compared to 5.62.
 2. **Alcohol content is a strong predictor of quality**, with higher alcohol levels consistently associated with better ratings.
-3. **Acidity levels significantly impact quality**, with optimal levels of fixed acidity and citric acid leading to higher scores, while volatile acidity should be minimized.
+3. **Residual sugar has a negligible impact on wine quality** explaining only 0.3% of the variation. While statistically significant, other factors like alcohol content, acidity, and aging play a far greater role. Further analysis is needed to understand key quality drivers.
+4. **Acidity levels significantly impact quality**, with optimal levels of citric acid and pH leading to higher scores, while volatile acidity and fixed_acidity should be minimized.
+   - The python code utilised to inspect these relationships can be found [here](Reports/figures/)
 
-These insights can guide strategic decisions in production, marketing, and product development to improve customer satisfaction and drive revenue growth.
 
-[Visualization, including a graph of overall trends or snapshot of a dashboard]
+The feature importance graph for wine quality is shown below, further analysis is required to make the prediction model more reliable. 
+ - The prediction model can be downloaded [here](model/wine_quality_predictor.pkl/)
 
+<p align="center">
+    <img src="Reports/figures/feature_importance.png" alt="White Wine" width="90%">
+</p>
 
 # Insights Deep Dive
 ### Analysis of Wine Quality by Color (Category 1):
@@ -118,7 +124,11 @@ These insights can guide strategic decisions in production, marketing, and produ
 
    White wines have a higher average quality rating than red wines.
 
-2. **Statistical Significance**:
+   <p align="center">
+    <img src="Reports/figures/quality_distribution.png" alt="Red Wine" width="90%">
+</p>
+
+3. **Statistical Significance**:
    - The difference in quality ratings is **statistically significant**.
    - The **p-value** is **4.47 × 10⁻¹⁷**, which is much smaller than the standard threshold of 0.05.
    - This indicates that the observed difference in quality is **not due to chance**.
@@ -128,6 +138,9 @@ These insights can guide strategic decisions in production, marketing, and produ
 1. **Relationship Between Alcohol and Quality**:
    - For every **1% increase in alcohol content**, the **quality rating** of the wine increases by **0.35 points** on average.
    - This means that wines with higher alcohol content tend to be rated as higher quality.
+    <p align="center">
+    <img src="Reports/figures/alcohol_vs_wine_quality.png" alt="White Wine" width="90%">
+</p>
 
 2. **Strength of the Relationship**:
    - The model explains **22% of the variation** in wine quality ratings. This suggests that while alcohol content is an important factor, other factors not included in the analysis also play a significant role in determining wine quality.
@@ -137,11 +150,14 @@ These insights can guide strategic decisions in production, marketing, and produ
    - The **p-value** for alcohol content is **0.000**, which is much smaller than the standard threshold of 0.05.
    - This indicates that the observed relationship between alcohol and quality is **not due to chance**.
 
-### Analysis of Wine Quality by Residual Sugar Content (Category 3):
+### Analysis of Wine Quality by level of acidity (Category 3):
 
 1. **Relationship Between Residual Sugar and Quality**:
    - For every **1 gram per liter increase in residual sugar**, the **quality rating** of the wine decreases by **0.011 points** on average.
    - This means that wines with higher residual sugar content tend to be rated slightly lower in quality.
+    <p align="center">
+    <img src="Reports/figures/sugar_vs_wine_quality.png" alt="Red Wine" width="90%">
+</p>
 
 2. **Strength of the Relationship**:
    - The model explains only **0.3% of the variation** in wine quality ratings. This indicates that residual sugar content has a **very weak influence** on wine quality compared to other factors.
@@ -151,7 +167,23 @@ These insights can guide strategic decisions in production, marketing, and produ
    - The **p-value** for residual sugar is **0.000**, which is much smaller than the standard threshold of 0.05.
    - This indicates that the observed relationship between residual sugar and quality is **not due to chance**.
 
-[Visualization specific to category 1]
+### Analysis of Wine Quality by Residual Sugar Content (Category 4):
+
+1. **Relationship Between Acidity and Quality**:
+   - Higher wine quality is associated with higher **citric_acid and pH**
+   - Higher wine quality is associated with lower **fixed_acidity and volatile_acidity.**
+
+2. **Strength of the Relationship**:
+   - **citric_acid** has the **strongest effect** at about **9.8%** correlation with wine quality.
+   - **pH** has the **lowest effect** with **0.3%** correlation with wine quality.
+     <p align="center">
+    <img src="Reports/figures/fixed_acidity_vs_quality.png" alt="Red Wine" width="45%">
+    <img src="Reports/figures/pH_vs_quality.png" alt="Red Wine" width="45%">
+</p>
+<p align="center">
+    <img src="Reports/figures/volatile_acidity_vs_quality.png" alt="Red Wine" width="45%">
+    <img src="Reports/figures/citric_acid_vs_quality.png" alt="Red Wine" width="45%">
+</p>
 
 
 # Key Insights
@@ -162,9 +194,29 @@ The analysis revealed several key insights:
 4. **Acidity levels** play a crucial role in wine quality, with higher fixed acidity and citric acid associated with better ratings.
 
 # Recommendations
-1. **Focus on White Wines**: Increase production and marketing efforts for white wines, as they consistently receive higher ratings.
-2. **Optimize Alcohol Content**: Aim for wines with higher alcohol content to improve quality ratings.
-3. **Monitor Acidity Levels**: Maintain optimal acidity levels (higher fixed acidity, lower volatile acidity) to enhance wine quality.
+Based on the insights and findings above, we recommend the [stakeholder team] to consider the following:
+
+1. **Quality Improvement by Wine Type:**
+   - *Observation:* White wines have a significantly higher average quality rating (5.85) compared to red wines (5.62), and this difference is statistically significant.
+   - *Recommendation:* Focus on improving red wine quality by adjusting key influencing factors such as acidity levels and alcohol content.
+
+2. **Alcohol Content Optimization:**
+   - *Observation:* Higher alcohol content is positively correlated with wine quality, with a 0.35-point increase in rating per 1% alcohol increase.
+   - *Recommendation:* Consider optimizing alcohol content levels within regulatory and sensory preference limits to enhance perceived quality.
+
+3. **Acidity Adjustment for Better Ratings:**
+   - *Observation:* Higher citric acid and pH are associated with better wine quality, while higher fixed acidity and volatile acidity are linked to lower ratings.
+   - *Recommendation:* Adjust acidity levels, particularly by enhancing citric acid content and maintaining balanced pH levels, to improve overall wine quality.
+
+4. **Residual Sugar’s Minimal Impact:**
+   - *Observation:* Residual sugar has a weak correlation (0.3%) with wine quality and does not significantly impact consumer satisfaction.
+   - *Recommendation:* Prioritize other factors such as alcohol content and acidity rather than focusing on residual sugar content when formulating wines.
+
+5. **Data-Driven Product Development:**
+   - *Observation:* While some factors strongly impact quality ratings, 78% of the variation remains unexplained by the analyzed variables.
+   - *Recommendation:* Conduct further research on additional attributes such as tannins, aging processes, and fermentation techniques to refine quality improvement strategies.
+
+By implementing these recommendations, the [stakeholder team] can enhance wine quality and align product offerings with consumer preferences.
   
 
 # Assumptions and Caveats
@@ -177,4 +229,4 @@ Throughout the analysis, multiple assumptions were made to manage challenges wit
 
 3. **Caveat 2**: The analysis assumes that the dataset is representative of the broader wine market. However, the data may be biased toward specific regions or production methods, limiting generalizability.
 
-4. **Caveat 3**: The machine learning model's performance (R² = 0.52) indicates moderate predictive power. While useful, the model may not capture all nuances of wine quality, and predictions should be interpreted with caution.
+4. **Caveat 3**: The machine learning model's performance (R² = 0.42) indicates moderate predictive power. While useful, the model may not capture all nuances of wine quality, and predictions should be interpreted with caution.
