@@ -90,7 +90,7 @@ Wine-Quality-UCI-Dataset-/
 ├── reports/
 │   ├── figures/                   # Visualizations and plots
 │   │   └── quality_distribution.png
-│   └── final_report.pdf           # Final analysis report
+│   └── executive-summary.pptx           # Final analysis report
 │
 ├── .gitignore                     # Files and folders to ignore
 ├── requirements.txt                # Python dependencies
