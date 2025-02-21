@@ -115,6 +115,8 @@ The feature importance graph for wine quality is shown below, further analysis i
     <img src="Reports/figures/feature_importance.png" alt="White Wine" width="90%">
 </p>
 
+A one-page PowerPoint executive summary is available for download [here](Reports/executive-summary.pptx)
+
 # Insights Deep Dive
 ### Analysis of Wine Quality by Color (Category 1):
 
