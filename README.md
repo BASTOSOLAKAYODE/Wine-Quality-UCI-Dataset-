@@ -7,7 +7,7 @@ Vinho Verde is a type of Portuguese wine that originates from the Minho region i
 This project focuses on understanding the factors that influence wine quality and providing actionable recommendations to improve product offerings and customer satisfaction.
 
 ### Key Areas of Analysis
-1. **Category 1: Wine Quality by Type (Red vs. White)**
+1. **Category 1: Wine Quality by Type (Red vs. White)** [Go to Category 1](#category1)
    - Analyze the differences in quality between red and white wines.
    - Identify which type of wine performs better in terms of customer ratings.
 
@@ -103,7 +103,7 @@ These insights can guide strategic decisions in production, marketing, and produ
 
 
 # Insights Deep Dive
-### Analysis of Wine Quality by Color:
+### Analysis of Wine Quality by Color (#category1):
 
 1. **Average Quality Ratings**:
    - **White Wines**: 5.85
