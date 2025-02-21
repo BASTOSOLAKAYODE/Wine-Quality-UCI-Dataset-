@@ -11,15 +11,15 @@ This project focuses on understanding the factors that influence wine quality an
    - Analyze the differences in quality between red and white wines.
    - Identify which type of wine performs better in terms of customer ratings.
 
-2. **Category 2: Alcohol Content and Quality**
+2. **Category 2: Alcohol Content and Quality** [Go to Category 2](#Analysis-of-Wine-Quality-by-Alcohol-Content)
    - Investigate the relationship between alcohol content and wine quality.
    - Determine if higher alcohol content leads to better ratings.
 
-3. **Category 3: Sweetness (Residual Sugar) and Quality**
+3. **Category 3: Sweetness (Residual Sugar) and Quality** [Go to Category 3](#analysis-of-wine-quality-by-color-category-1)
    - Explore whether sweeter wines (higher residual sugar) receive better ratings.
    - Assess the impact of sweetness on customer preferences.
 
-4. **Category 4: Acidity Levels and Quality**
+4. **Category 4: Acidity Levels and Quality** [Go to Category 4](#analysis-of-wine-quality-by-color-category-1)
    - Examine the role of acidity (fixed acidity, volatile acidity, citric acid, pH) in determining wine quality.
    - Identify the optimal acidity levels for high-quality wines.
 
@@ -116,7 +116,7 @@ These insights can guide strategic decisions in production, marketing, and produ
    - The **p-value** is **4.47 × 10⁻¹⁷**, which is much smaller than the standard threshold of 0.05.
    - This indicates that the observed difference in quality is **not due to chance**.
 
-### Analysis of Wine Quality by Alcohol Content:
+### Analysis of Wine Quality by Alcohol Content (Category 2):
 
 1. **Relationship Between Alcohol and Quality**:
    - For every **1% increase in alcohol content**, the **quality rating** of the wine increases by **0.35 points** on average.
@@ -130,7 +130,7 @@ These insights can guide strategic decisions in production, marketing, and produ
    - The **p-value** for alcohol content is **0.000**, which is much smaller than the standard threshold of 0.05.
    - This indicates that the observed relationship between alcohol and quality is **not due to chance**.
 
-### Analysis of Wine Quality by Residual Sugar Content:
+### Analysis of Wine Quality by Residual Sugar Content (Category 3):
 
 1. **Relationship Between Residual Sugar and Quality**:
    - For every **1 gram per liter increase in residual sugar**, the **quality rating** of the wine decreases by **0.011 points** on average.
