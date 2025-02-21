@@ -11,7 +11,7 @@ This project focuses on understanding the factors that influence wine quality an
    - Analyze the differences in quality between red and white wines.
    - Identify which type of wine performs better in terms of customer ratings.
 
-2. **Category 2: Alcohol Content and Quality** [Go to Category 2](#Analysis-of-Wine-Quality-by-Alcohol-Content)
+2. **Category 2: Alcohol Content and Quality** [Go to Category 2](#analysis-of-wine-quality-by-alcohol-content)
    - Investigate the relationship between alcohol content and wine quality.
    - Determine if higher alcohol content leads to better ratings.
 
