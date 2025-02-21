@@ -15,7 +15,7 @@ This project focuses on understanding the factors that influence wine quality an
    - Investigate the relationship between alcohol content and wine quality.
    - Determine if higher alcohol content leads to better ratings.
 
-3. **Category 3: Sweetness (Residual Sugar) and Quality** [Go to Category 3](#analysis-of-wine-quality-by-color-category-1)
+3. **Category 3: Sweetness (Residual Sugar) and Quality** [Go to Category 3](#Analysis-of-Wine-Quality-by-Residual-Sugar-Content-category-3)
    - Explore whether sweeter wines (higher residual sugar) receive better ratings.
    - Assess the impact of sweetness on customer preferences.
 
