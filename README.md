@@ -25,9 +25,11 @@ This project focuses on understanding the factors that influence wine quality an
 
 ### Data Sources and Tools
 - **Dataset**: The analysis is based on a dataset containing physicochemical properties and quality ratings for 6,497 red and white wines. Information about the dataset can be found [here](https://archive.ics.uci.edu/dataset/186/wine+quality).
-- **Notebook**: The notebooks containing the data wrangling, EDA and model training process for this case study can be found [here](https://github.com/BASTOSOLAKAYODE/Wine-Quality-UCI-Dataset-/tree/main/notebooks) .
-- **Tableau Dashboard**: An interactive dashboard was created to visualize sales trends and wine quality metrics. Explore it [here](#) (link to Tableau dashboard).
-
+- **Notebook**: The notebooks containing preprocessing, EDA and model training process for this case study can be found [here](notebooks/) .
+<!-- 
+- **Tableau Dashboard**: Visualizations were created to show the relationships in each of the categories listed above.  
+  Explore them [here](viz/). 
+-->
 
 # Data Structure & Initial Checks
 
@@ -40,8 +42,13 @@ The main database structure consists of two tables: `winequality-red.csv` and `w
 - **Table 2: `winequality-white.csv`**
   - Contains physicochemical properties of wines, such as `fixed acidity`, `volatile acidity`, `citric acid`, `residual sugar`, `chlorides`, `free sulfur dioxide`, `total sulfur dioxide`, `density`, `pH`, `sulphates`, `alcohol`, and `quality`.
   - **Rows**: 4,898
+    
+- **Datasets schema below**
+<p align="center">
+    <img src="data/schema/red_wine_schema.png" alt="Red Wine" width="45%">
+    <img src="data/schema/white_wine_schema.png" alt="White Wine" width="45%">
+</p>
 
-[Entity Relationship Diagram here]
 
 
 ## Initial Data Checks
