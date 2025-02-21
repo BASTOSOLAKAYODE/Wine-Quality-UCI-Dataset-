@@ -15,16 +15,16 @@ This project focuses on understanding the factors that influence wine quality an
    - Investigate the relationship between alcohol content and wine quality.
    - Determine if higher alcohol content leads to better ratings.
 
-3. **Category 3: Sweetness (Residual Sugar) and Quality** [Go to Category 3](#Analysis-of-Wine-Quality-by-Residual-Sugar-Content-category-3)
+3. **Category 3: Sweetness (Residual Sugar) and Quality** [Go to Category 3](#Analysis-of-Wine-Quality-by-level-of-acidity-category-3)
    - Explore whether sweeter wines (higher residual sugar) receive better ratings.
    - Assess the impact of sweetness on customer preferences.
 
-4. **Category 4: Acidity Levels and Quality** [Go to Category 4](#Analysis-of-Wine-Quality-by-level-of-acidity-category-4)
+4. **Category 4: Acidity Levels and Quality** [Go to Category 4](#Analysis-of-Wine-Quality-by-Residual-Sugar-Content-category-4)
    - Examine the role of acidity (fixed acidity, volatile acidity, citric acid, pH) in determining wine quality.
    - Identify the optimal acidity levels for high-quality wines.
 
 ### Data Sources and Tools
-- **Dataset**: The analysis is based on a dataset containing physicochemical properties and quality ratings for 6,497 red and white wines. Information about the dataset can be found [here](https://archive.ics.uci.edu/dataset/186/wine+quality). **Raw dataset** used is [here](data/raw)
+- **Dataset**: The analysis is based on a dataset containing physicochemical properties and quality ratings for 6,497 red and white wines. Information about the dataset can be found [here](https://archive.ics.uci.edu/dataset/186/wine+quality). **The raw dataset** used is [here](data/raw)
 - **Notebook**: The notebooks containing preprocessing, EDA and model training process for this case study can be found [here](notebooks/).
 
 
@@ -84,7 +84,7 @@ Wine-Quality-UCI-Dataset-/
 ├── scripts/
 │   └── __init__.py                # Helper scripts and utilities
 │
-├── models/
+├── model/
 │   └── wine_quality_predictor.pkl # Saved machine learning model
 │
 ├── reports/
