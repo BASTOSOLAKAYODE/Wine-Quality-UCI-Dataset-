@@ -105,7 +105,7 @@ This analysis identifies key drivers of wine quality and provides actionable ins
 2. **Alcohol content is a strong predictor of quality**, with higher alcohol levels consistently associated with better ratings.
 3. **Residual sugar has a negligible impact on wine quality** explaining only 0.3% of the variation. While statistically significant, other factors like alcohol content, acidity, and aging play a far greater role. Further analysis is needed to understand key quality drivers.
 4. **Acidity levels significantly impact quality**, with optimal levels of citric acid and pH leading to higher scores, while volatile acidity and fixed_acidity should be minimized.
-   - The python code utilised to inspect these relationships can be found [here](Reports/figures/)
+   - The python code utilised to inspect these relationships can be found [here](notebooks/)
 
 
 The feature importance graph for wine quality is shown below, further analysis is required to make the prediction model more reliable. 
